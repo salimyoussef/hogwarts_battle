@@ -19,8 +19,8 @@ import { RepeatDirective } from './directives/repeat.directive';
 import { FormsModule } from '@angular/forms';
 import { AddSpellDialogComponent } from './components/add-spell-dialog/add-spell-dialog.component';
 import { SpellFormComponent } from './components/spell-form/spell-form.component';
-import { SpellListComponent } from './components/spell-list/spell-list.component';
 import { WizardListComponent } from './components/wizard-list/wizard-list.component';
+import { ToutSaufCaModule } from './common/toutsaufca.module';
 
 @NgModule({
   declarations: [
@@ -37,8 +37,7 @@ import { WizardListComponent } from './components/wizard-list/wizard-list.compon
     RepeatDirective,
     AddSpellDialogComponent,
     SpellFormComponent,
-    SpellListComponent,
-    WizardListComponent
+    WizardListComponent,
   ],
   entryComponents: [AddSpellDialogComponent],
   imports: [
@@ -47,9 +46,17 @@ import { WizardListComponent } from './components/wizard-list/wizard-list.compon
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    ToutSaufCaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(){
+    console.log("root")
+    console.log(this);
+    
+  }
+
+ }

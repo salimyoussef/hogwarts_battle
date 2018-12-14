@@ -10,7 +10,8 @@ export class SpellListComponent implements OnInit {
 
   @Input() spells:Array<Spell>;
 
-  constructor() { }
+  constructor() {console.log("spell list component");
+   }
 
   ngOnInit() {
   }

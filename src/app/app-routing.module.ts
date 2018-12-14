@@ -7,7 +7,8 @@ import { BattleComponent } from './components/battle/battle.component';
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'shop', component: ShopComponent},
-  {path: 'battle', component: BattleComponent}
+  {path: 'battle', component: BattleComponent},
+  {path: 'admin', loadChildren: './admin/admin.module#AdminModule'}
 ];
 
 @NgModule({
