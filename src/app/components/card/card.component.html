@@ -1,0 +1,30 @@
+<div class="card">
+
+  <h3>{{wizard.name}}</h3>
+  <div>{{wizard.house}}</div>
+  <div class="text-center">
+    <img class="img-thumbnail img-card" [src]="wizard.image">
+  </div>
+  <div class="skills">
+    <div>
+      <label>Attack</label>
+      <mat-progress-bar color ="warn" mode="determinate" [value]="wizard.attack"></mat-progress-bar>
+    </div>
+    <div>
+      <label>Defense</label>
+      <mat-progress-bar mode="determinate" [value]="wizard.defense"></mat-progress-bar>
+    </div>
+    <div>
+      <div>
+        <label>Spells</label><a class="add-btn" (click)="addSpell()"><i class="fas fa-plus-square"></i></a>
+      </div>
+      <div class="spell" *ngFor="let spell of wizard.spells">{{spell.name}} 
+        <span style="float: right">{{spell.damage}} 
+          <a class="delete-btn" (click)="deleteSpell(spell)">X</a>
+        </span>
+      </div>
+      <div class="spell" *ngIf="wizard.spells === undefined">No spell yet.</div>
+    </div>
+  </div>
+  <button class="btn btn-block" [ngClass]="{'btn-success': !have, 'btn-danger': have}" [disabled]="!canBuy" (click)="action()">{{!have ? 'Buy': 'Sell'}} ({{wizard.price}}$)</button>
+</div>

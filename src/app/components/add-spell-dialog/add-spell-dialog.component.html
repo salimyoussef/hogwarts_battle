@@ -1,0 +1,9 @@
+<div>
+  <div class="row" *ngFor="let spell of spells">
+    <div style="width: 100%">
+      {{spell.name}}
+      <span style="float: right">{{(spell.damage > 0 ? '+' : '-') + spell.damage}}</span>
+    </div>
+    <button class="btn btn-block" [ngClass]="{'btn-success': !hasSpell(spell), 'btn-danger': hasSpell(spell)}" style="float: right">{{hasSpell(spell) ? 'Already used' : 'Add spell'}}</button>
+  </div>
+</div>

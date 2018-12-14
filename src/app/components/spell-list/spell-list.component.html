@@ -1,0 +1,18 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Type</th>
+        <th scope="col">Damage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let spell of spells">
+        <td>{{spell.id}}</td>
+        <td>{{spell.name}}</td>
+        <td>{{spell.type}}</td>
+        <td>{{spell.damage}}</td>
+      </tr>
+    </tbody>
+  </table>

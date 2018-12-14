@@ -1,0 +1,51 @@
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" data-toggle="tab" href="#wizards">Wizards</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link"  data-toggle="tab" href="#spells">Spells</a>
+  </li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane fade show active" id="wizards">
+    <div class="row">
+      <div class="col-6">
+        <h5>Available wizards</h5>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">House</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let wizard of tabWizards" [ngStyle]="houseStyles.get(wizard.house)" (mouseover)="displayWizard(wizard)">
+              <td>{{wizard.id | wizardId}}</td>
+              <td>{{wizard.name}}</td>
+              <td>{{wizard.house}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-3">
+        <app-card *ngIf="currentWizard" [wizard]="currentWizard" [have]="toHave()" [canBuy]="toHave() || profile.money >= currentWizard.price"
+          (select)="buyOrSell(currentWizard)"></app-card>
+        <div *ngIf="!currentWizard" class="alert alert-warning">
+          <p>Select a character !</p>
+        </div>
+      </div>
+      <div class="col-3" *ngIf="members">
+        <app-team [members]="members" (onClickWizard)="displayWizard($event)"></app-team>
+      </div>
+      <div class="col-3" *ngIf="!members" class="alert alert-warning">
+        <p>Problème réseau</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-pane fade" id="spells">
+    <app-shop-spell [profile]="profile"></app-shop-spell>
+  </div>
+</div>

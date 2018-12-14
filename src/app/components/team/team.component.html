@@ -1,0 +1,12 @@
+<div *ngIf="members">
+  <h5>My team</h5>
+  <div class="row">
+    <div *ngFor="let member of members" class="col-6">
+      <img class="img-thumbnail" width="50" [src]="member.image" (click)="action(member)" />
+    </div>
+    <div *ngIf="members.length === 0">
+      You have no member in your team yet.
+    </div>
+  </div>
+
+</div>
